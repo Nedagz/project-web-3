@@ -1,0 +1,82 @@
+@mixin parent_width() {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin column($justify: flex-start, $alignItems: flex-start) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $alignItems;
+}
+
+@mixin button($background: $primary_color, $hover_background: $primary_color) {
+    border-radius: $spacing;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: $spacing * 3 $spacing * 5;
+    background-color: $background;
+    position: relative;
+    overflow: hidden;
+
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: $hover_background;
+        z-index: 0;
+        border-radius: $spacing;
+        transform: translateX(-100%);
+        transition: transform 0.5s cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    }
+
+    &:hover::after {
+        transform: translateX(0);
+    }
+}
+
+@mixin box_style() {
+    padding: $spacing * 4 $spacing * 4;
+    background: #ffff;
+}
+
+@mixin icon_style(){
+    width: 70px;
+    height: 70px;
+    margin-bottom: $spacing * 4;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0px 15px 60px rgba(54,127,255,0.1);
+    display: inline-block;
+}
+
+@mixin link_style() {
+    display: inline-block;
+    text-decoration: none;
+    color: $heading_color;
+    margin-bottom: $spacing * 2;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+@mixin button_link_style() {
+    display: inline-block;
+    text-decoration: none;
+    color : $primary_color;
+    padding: $spacing  $spacing * 4;
+    font-weight: 700;
+    font-size: 16px;
+}

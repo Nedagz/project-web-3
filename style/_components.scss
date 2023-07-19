@@ -1,0 +1,89 @@
+.hero-container {
+    background-color: $light_bg_color;
+    height: 120vh;
+    position: relative;
+   
+    &::after {
+        content: 'TALENTS';
+        display: block;
+        color: white;
+        width: 73%;
+        position: absolute;
+        bottom: -3vw;
+        left: 12%;
+        right: 10%;
+        font-size: 17vw;
+        font-weight: 700;
+        line-height: 1;
+    }
+}
+
+.hero-content {
+    @include parent_width;
+    @include column($alignItems: center, $justify: space-between !important);
+    padding-top: 100px;
+    padding-bottom: 180px;
+    width: 100%;
+    height: 100%;
+   
+    flex-wrap: wrap;
+    
+
+    .hero-content-text {
+        width: 40%;
+        
+        p {
+            margin-bottom: $spacing * 2;
+        }
+    }
+    img {
+        width: 50%;
+    }
+    h2 {
+        margin-bottom: $spacing * 4;
+    }
+}
+
+.button-primary {
+    @include button($hover_background: $secondary_color);
+    margin-top: $spacing;
+}
+
+.hero-container-job-category {
+    @include parent_width;
+    height: 150vh;
+    padding-top: $spacing * 15;
+    background-color: #fff;
+
+    .text-job-category {
+        text-align: center;
+        margin-bottom: $spacing * 6;
+    }
+
+    h2 {
+        margin-bottom: $spacing * 3;
+    }
+}
+
+
+.box {
+    @include box_style;
+
+    .icon-img {
+       @include icon_style;
+
+        > .img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .title-link {
+        @include link_style;
+    }
+
+    .button-link {
+        @include button_link_style;
+    }
+    
+}
+
